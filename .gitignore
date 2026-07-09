@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Consilium runtime
+*.db
+consilium.db
+consilium-cache.db
+*.report.json
+*.report.md
+
+# Env / secrets
+.env
+
+# Local verification helpers
+verify_consilium.py
+run_consilium_verify.bat
+consilium_verify_output.txt
+run_console.txt
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

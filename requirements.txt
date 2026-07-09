@@ -1,0 +1,8 @@
+# The agent + graph core is pure standard library (no deps).
+# These power the production service and event worker:
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2
+faststream[redis]>=0.5
+# Optional: use the real LangGraph runtime with CONSILIUM_ORCHESTRATOR=langgraph
+# langgraph>=0.2

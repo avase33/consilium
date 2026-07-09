@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "consilium-research"
+version = "0.1.0"
+description = "A production-grade multi-agent corporate research system: Supervisor, Researcher, Analyst and Critic agents collaborating over a typed state graph, with FastAPI + FastStream, RAG-style web search, persistence and observability. Offline-first."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Akhil Vase" }]
+keywords = ["ai", "agents", "multi-agent", "langgraph", "research", "llm", "fastapi", "faststream", "orchestration"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Framework :: FastAPI",
+  "Environment :: Web Environment",
+]
+dependencies = []  # the agent/graph core is pure standard library
+
+[project.optional-dependencies]
+server = ["fastapi>=0.110", "uvicorn[standard]>=0.29", "pydantic>=2"]
+stream = ["faststream[redis]>=0.5", "pydantic>=2"]
+langgraph = ["langgraph>=0.2"]
+dev = ["pytest>=7", "httpx>=0.27", "fastapi>=0.110", "uvicorn>=0.29", "pydantic>=2"]
+
+[project.scripts]
+consilium = "consilium.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/avase33/consilium"
+Issues = "https://github.com/avase33/consilium/issues"
+
+[tool.setuptools.packages.find]
+include = ["consilium*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
